@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+
+.section-title {
+  color: #0b3c78;
+  font-weight: 600;
+}
+
+.table tbody tr {
+  cursor: pointer;
+  transition: transform 0.15s ease-in-out;
+}
+
+.table tbody tr:hover {
+  transform: translateX(4px);
+}
+
+.table tbody tr.table-active {
+  background-color: rgba(13, 110, 253, 0.12);
+}
+
+.card-img-top {
+  max-height: 280px;
+  object-fit: cover;
+}

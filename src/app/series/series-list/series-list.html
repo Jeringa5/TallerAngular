@@ -1,0 +1,71 @@
+<div class="series-container container py-4">
+  <h2 class="section-title mb-4">TV Series</h2>
+
+  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+  </div>
+
+  <div class="row g-4" *ngIf="!errorMessage">
+    <div class="col-lg-8">
+      <div class="table-responsive shadow-sm rounded">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Channel</th>
+              <th scope="col">Seasons</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let serie of series"
+              (click)="onSelectSerie(serie)"
+              [class.table-active]="serie === selectedSerie"
+            >
+              <th scope="row">{{ serie.id }}</th>
+              <td>{{ serie.name }}</td>
+              <td>{{ serie.channel }}</td>
+              <td>{{ serie.seasons }}</td>
+            </tr>
+          </tbody>
+          <tfoot *ngIf="series.length">
+            <tr>
+              <td colspan="3" class="text-end fw-semibold">Average seasons:</td>
+              <td>{{ averageSeasons }}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <ng-container *ngIf="selectedSerie; else placeholder">
+        <div class="card shadow-sm border-0 h-100">
+          <img
+            class="card-img-top"
+            [src]="selectedSerie!.poster"
+            [alt]="selectedSerie!.name"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ selectedSerie!.name }}</h5>
+            <p class="card-text">{{ selectedSerie!.description }}</p>
+            <a
+              class="btn btn-outline-primary btn-sm"
+              [href]="selectedSerie!.webpage"
+              target="_blank"
+              rel="noopener"
+            >
+              Visit official site
+            </a>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #placeholder>
+        <div class="alert alert-info" role="alert">
+          Selecciona una serie para ver más detalles.
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

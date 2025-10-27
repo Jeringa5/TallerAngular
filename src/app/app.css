@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #f5f7fb;
+}
+
+.app-header {
+  background-color: #0b3c78;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.app-header h1 {
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
