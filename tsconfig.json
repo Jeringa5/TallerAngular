@@ -13,12 +13,7 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "esnext",
-    "moduleResolution": "node", // Add this to resolve modules like Node.js
-    "baseUrl": "./", // Add base URL for relative paths
-    "paths": {
-      "@angular/*": ["node_modules/@angular/*"] // Map Angular modules explicitly
-    }
+    "module": "preserve"
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
